@@ -78,4 +78,8 @@ public class UserRepository {
     public Optional <User> lastUserId(){
         return userCrud.findTopByOrderByIdDesc();
     }
+    
+    public List<User> birthtDayList(String monthBirthtDay) {
+        return userCrud.findByMonthBirthtDay(monthBirthtDay);
+    }
 }

@@ -60,4 +60,6 @@ public interface UserCrudRepository extends MongoRepository<User, Integer> {
      */
     
     public List<User> findByIdentificationAndCellPhoneAndEmailAndPasswordAndName(String Identification,String cellPhone, String email, String password, String Name);
+
+    List<User> findByMonthBirthtDay(String monthBirthtDay);
 }

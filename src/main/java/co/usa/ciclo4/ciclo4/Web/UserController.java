@@ -129,5 +129,8 @@ public class UserController {
        return  service.deleteUserById(id);
     
     }
-    
+    @GetMapping("/birthday/{month}")
+    public List<User> birthtDayList(@PathVariable("month") String monthBirthtDay) {
+        return service.birthtDayList(monthBirthtDay);
+    }
 }
