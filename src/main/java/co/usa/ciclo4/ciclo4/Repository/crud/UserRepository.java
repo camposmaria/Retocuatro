@@ -13,7 +13,7 @@ import org.springframework.data.repository.core.CrudMethods;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ * Clase donde se gestiona los metodos crud
  * @author Ivonne
  */
 @Repository
@@ -22,16 +22,19 @@ public class UserRepository {
 
     @Autowired
     /**
-     * 
+     * Metodo para instanciar el crud
      */
     private UserCrudRepository userCrud;
-
+    /**
+     * Metodo getall para listar todos los usuarios
+     * @return 
+     */
     public List<User> getAll() {
 
         return (List<User>) userCrud.findAll();
     }
     /**
-     * 
+     * Metodo get para listar usuario por Id
      * @param id
      * @return 
      */
@@ -41,9 +44,9 @@ public class UserRepository {
     
     }
     /**
-     * 
+     * metodo save para crear un usuario
      * @param User
-     * @return 
+     * @return usuario
      */
     public User save(User User) {
 
@@ -51,7 +54,7 @@ public class UserRepository {
     }
 
     /***
-     * 
+     * Metodo get para listar un usuario por su nombre
      * @param name
      * @return 
      */
@@ -61,7 +64,7 @@ public class UserRepository {
 
     }
     /**
-     * 
+     * Metodo get para listar usuarios por su email
      * @param email
      * @return 
      */
@@ -71,7 +74,7 @@ public class UserRepository {
 
     }
     /**
-     * 
+     * metodo get par listar usuarios por nombre y Email
      * @param name
      * @param email
      * @return 
@@ -85,7 +88,7 @@ public class UserRepository {
      * 
      * @param email
      * @param password
-     * @return 
+     * @return Metodo get para buscar usuarios por email y assword
      */
     public Optional<User> getUserByEmailAndPassword(String email, String password) {
 
@@ -93,7 +96,7 @@ public class UserRepository {
 
     }
     /**
-     * 
+     * metodo delete para boorrar usuarios por id
      * @param id 
      */
     public void deleteUser(Integer id){
@@ -102,7 +105,7 @@ public class UserRepository {
     
     }
     /**
-     * 
+     * metodo para 
      * @param Identification
      * @param cellPhone
      * @param email
@@ -110,20 +113,21 @@ public class UserRepository {
      * @param name
      * @return 
      */
+    
     public List<User> getICEP(String Identification,String cellPhone, String email, String password, String name){
     
     return userCrud.findByIdentificationAndCellPhoneAndEmailAndPasswordAndName(Identification, cellPhone, email, password, name);
     
     }
     /**
-     * 
+     * metodo  get para encontrar el ultimo id de los usuarios
      * @return 
      */
     public Optional <User> lastUserId(){
         return userCrud.findTopByOrderByIdDesc();
     }
     /**
-     * 
+     * Metodo para listar los usuarios por su mes de nacimiento
      * @param monthBirthtDay
      * @return 
      */
