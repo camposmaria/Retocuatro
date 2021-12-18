@@ -129,4 +129,12 @@ public class cloneService {
     
     }
     
+    public List<Clone> clonesByPrice(double price) {
+        return cloneRepo.clonesByPrice(price);
+    }
+
+   
+    public List<Clone> findByDescriptionLike(String description) {
+        return cloneRepo.findByDescriptionLike(description);
+    }
 }

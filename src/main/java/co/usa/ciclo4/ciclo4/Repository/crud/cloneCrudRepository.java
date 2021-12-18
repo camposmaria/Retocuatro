@@ -10,6 +10,7 @@ import co.usa.ciclo4.ciclo4.Modelo.User;
 import java.util.List;
 import java.util.Optional;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.mongodb.repository.Query;
 
 /**
  *
@@ -18,6 +19,9 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface cloneCrudRepository extends MongoRepository<Clone, Integer> {
     
-   
+   public List<Clone> findByPriceLessThanEqual(double precio);
+
+    @Query("{'description':{'$regex':'?0','$options':'i'}}")
+    public List<Clone> findByDescriptionLike(String description);
 }
 

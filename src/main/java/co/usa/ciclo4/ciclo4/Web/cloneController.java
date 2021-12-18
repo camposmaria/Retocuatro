@@ -87,4 +87,14 @@ public class cloneController {
     
     }
     
+    @GetMapping("/price/{price}")
+    public List<Clone> clonesByPrice(@PathVariable("price") double precio) {
+        return service.clonesByPrice(precio);
+    }
+    
+    
+    @GetMapping("/description/{description}")
+    public List<Clone> findByDescriptionLike(@PathVariable("description") String description) {
+        return service.findByDescriptionLike(description);
+    }
 }
